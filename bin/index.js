@@ -1,5 +1,15 @@
 #!/usr/bin/env node
 
+/**
+ * @license Just Commit
+ * index.js
+ *
+ * Copyright (c) 2025 - Present Natarizkie
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import process from 'process';
 import 'dotenv/config';
 import { getDiffForFile, getGitChanges, stageFile, commitFile } from '../src/utils.js';
