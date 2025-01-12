@@ -55,8 +55,9 @@ async function autoCommit() {
         console.log(' ');
         console.log('=======================================================');
         console.log(' ');
-        console.log('Welcome to Just Commit for Git Commit Messages!');
+        console.log('Welcome to Just Commit!');
         console.log('Copyright (c) 2025 - Present Natarizkie');
+        console.log(`Web: https://natarizkie.com/ - E-mail: natarizkie@gmail.com`);
         console.log(' ');
         console.log('=======================================================');
         console.log(' ');
