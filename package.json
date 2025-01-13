@@ -1,6 +1,6 @@
 {
     "name": "just-commit",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "An automated CLI tool for generating meaningful Git commit messages with AI, following Conventional Commits. Ideal for developers seeking quick, clear, and consistent version control.",
     "main": "index.js",
     "type": "module",
