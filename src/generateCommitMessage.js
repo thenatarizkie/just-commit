@@ -1,13 +1,3 @@
-/**
- * @license Just Commit
- * generateCommitMessage.js
- *
- * Copyright (c) 2025 - Present Natarizkie
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const listRandomCommit = [
@@ -55,7 +45,7 @@ export async function generateCommitMessage(diff, apiKey) {
         Generate a Conventional Commit message based on the following diff: ${diff}.
         The message should:
         - Start with a type (e.g., feat, fix, chore, docs, refactor, style, or test).
-        - Include a description that explains what the change does in more detail (mid-long, 1 sentence, at least 6-12 words).
+        - Include a description that explains what the change does in more detail (mid-long, 1 sentence, at least 6-10 words).
         - Be specific, informative, and clearly communicate the purpose of the change.
         - Example format: "feat: enhance user input handling by adding validation and error handling, improving UX".
         - Do not add a period at the end of the message.
@@ -77,6 +67,9 @@ export async function generateCommitMessage(diff, apiKey) {
         if (response.endsWith('.')) {
             response = response.slice(0, -1);
         }
+
+        response = response.replace(/[^a-zA-Z0-9]+$/, '');
+        response = response.replace(/"/g, '');
 
         return response.toLowerCase();
     } catch (error) {
