@@ -1,5 +1,6 @@
 import 'dotenv/config';
 
+import chalk from 'chalk';
 import { execSync } from 'child_process';
 import { execa } from 'execa';
 import * as fs from 'fs';
@@ -10,6 +11,9 @@ import prompts from 'prompts';
 
 const configPath = path.join(os.homedir(), '.just-commit-config.json');
 
+const logSuccess = (msg) => console.log(`${chalk.green('√')} ${msg}`);
+const logError = (msg) => console.log(`${chalk.red('×')} ${msg}`);
+
 const defaultConfig = {
     apiKey: '',
     enableEmoji: false,
@@ -19,7 +23,7 @@ const defaultConfig = {
 };
 
 const onCancel = () => {
-    console.log('Ongoing process has been canceled');
+    logError(`Ongoing process has been canceled`);
     process.exit(1);
 };
 
@@ -77,7 +81,7 @@ export async function setApiKey() {
 
     await saveConfig({ apiKey: input });
 
-    console.log(`Successfully update API key`);
+    logSuccess(`Successfully update API key`);
     process.exit(0);
 }
 
@@ -97,7 +101,7 @@ export async function enableEmoji() {
 
     await saveConfig({ enableEmoji: input });
 
-    console.log(`Successfully update emoji status`);
+    logSuccess(`Successfully update emoji status`);
     process.exit(0);
 }
 
@@ -117,7 +121,7 @@ export async function enableScope() {
 
     await saveConfig({ enableScope: input });
 
-    console.log(`Successfully updated the scope status`);
+    logSuccess(`Successfully updated the scope status`);
     process.exit(0);
 }
 
@@ -146,7 +150,7 @@ export async function chooseLanguage() {
 
     await saveConfig({ language: input });
 
-    console.log(`Successfully updated the commit language`);
+    logSuccess(`Successfully updated the commit language`);
     process.exit(0);
 }
 
@@ -167,7 +171,7 @@ export async function chooseType() {
 
     await saveConfig({ type: input });
 
-    console.log(`Successfully update description type`);
+    logSuccess(`Successfully update description type`);
     process.exit(0);
 }
 
