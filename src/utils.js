@@ -69,53 +69,55 @@ export async function setApiKey() {
         {
             type: 'password',
             name: 'input',
-            message: 'Enter API Key...',
-            validate: (value) => (value.trim() === '' ? 'API Key is required' : true),
+            message: 'Enter API key',
+            validate: (value) => (value.trim() === '' ? 'API key required' : true),
         },
         { onCancel },
     );
 
     await saveConfig({ apiKey: input });
 
-    console.log(`Successfully store the API Key in ${configPath}`);
+    console.log(`Successfully update API key`);
     process.exit(0);
 }
 
 export async function enableEmoji() {
     const { input } = await prompts(
         {
-            type: 'toggle',
+            type: 'select',
             name: 'input',
-            message: 'Want to use emoji?',
-            initial: true,
-            active: 'Yes',
-            inactive: 'No',
+            message: 'Do you want to use emoji?',
+            choices: [
+                { title: 'Yes', value: true },
+                { title: 'No', value: false },
+            ],
         },
         { onCancel },
     );
 
     await saveConfig({ enableEmoji: input });
 
-    console.log(`Successfully store the API Key in ${configPath}`);
+    console.log(`Successfully update emoji status`);
     process.exit(0);
 }
 
 export async function enableScope() {
     const { input } = await prompts(
         {
-            type: 'toggle',
+            type: 'select',
             name: 'input',
-            message: 'Want to use scope?',
-            initial: true,
-            active: 'Yes',
-            inactive: 'No',
+            message: 'Do you want to use scope?',
+            choices: [
+                { title: 'Yes', value: true },
+                { title: 'No', value: false },
+            ],
         },
         { onCancel },
     );
 
     await saveConfig({ enableScope: input });
 
-    console.log(`Successfully store the API Key in ${configPath}`);
+    console.log(`Successfully updated the scope status`);
     process.exit(0);
 }
 
@@ -136,54 +138,37 @@ export async function chooseLanguage() {
         {
             type: 'select',
             name: 'input',
-            message: 'Choose the language to be used',
+            message: 'Select the commit language to use',
             choices: listPrompts,
         },
         { onCancel },
     );
 
-    const check = list.some((prompt) => prompt.id === input);
+    await saveConfig({ language: input });
 
-    if (check) {
-        const selected = list.find((prompt) => prompt.id === input);
-        await saveConfig({ language: selected.id });
-
-        console.log(`Successfully store the API Key in ${configPath}`);
-        process.exit(0);
-    } else {
-        console.log(`Language choice not found`);
-        process.exit(0);
-    }
+    console.log(`Successfully updated the commit language`);
+    process.exit(0);
 }
 
 export async function chooseType() {
-    let listPrompts = [
-        { title: 'With Description', value: 'with' },
-        { title: 'Without Description', value: 'without' },
-    ];
-
     const { input } = await prompts(
         {
             type: 'select',
             name: 'input',
-            message: 'Choose the type to be used',
-            choices: listPrompts,
+            message: 'Select the description type to use',
+            choices: [
+                { title: 'With Description', value: 'with' },
+                { title: 'Without Description', value: 'without' },
+            ],
+            initial: 0,
         },
         { onCancel },
     );
 
-    const check = listPrompts.some((prompt) => prompt.value === input);
+    await saveConfig({ type: input });
 
-    if (check) {
-        const selected = listPrompts.find((prompt) => prompt.value === input);
-        await saveConfig({ type: selected.value });
-
-        console.log(`Successfully store the API Key in ${configPath}`);
-        process.exit(0);
-    } else {
-        console.log(`Type choice not found`);
-        process.exit(0);
-    }
+    console.log(`Successfully update description type`);
+    process.exit(0);
 }
 
 export async function getDiffForFile(file) {
