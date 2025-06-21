@@ -1,22 +1,16 @@
 import { generateCommitMessage } from '../generateCommitMessage.js';
 import { commitFile, getDiffForFile, getGitChanges, stageFile } from '../utils.js';
+import { logInfo } from '../utils.js';
 
 export async function handleCommitCommand(options) {
     const { date, mode } = options;
-
-    console.log(`🚀 Commit started...`);
-    console.log(`🗓️  Date: ${date || 'Today'}`);
-    console.log(`📦 Mode: ${mode}`);
+    void date;
+    void mode;
 
     try {
-        console.log(' ');
-        console.log('=======================================================');
-        console.log(' ');
-        console.log('Welcome to Just Commit!');
-        console.log('Copyright (c) 2025 - Present Natarizkie');
-        console.log(`Web: https://natarizkie.com/ - E-mail: natarizkie@gmail.com`);
-        console.log(' ');
-        console.log('=======================================================');
+        logInfo('Welcome to Just Commit! 📦 v1.0.0');
+        logInfo('Copyright (c) 2025 - Present Natarizkie');
+        logInfo(`Web: https://natarizkie.com/ - E-mail: natarizkie@gmail.com`);
         console.log(' ');
 
         const changedFiles = getGitChanges();
