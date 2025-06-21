@@ -9,10 +9,11 @@ import * as path from 'path';
 import process from 'process';
 import prompts from 'prompts';
 
-const configPath = path.join(os.homedir(), '.just-commit-config.json');
+export const logSuccess = (msg) => console.log(`${chalk.green('√')} ${msg}`);
+export const logError = (msg) => console.log(`${chalk.red('×')} ${msg}`);
+export const logInfo = (msg) => console.log(`${chalk.green('>')} ${msg}`);
 
-const logSuccess = (msg) => console.log(`${chalk.green('√')} ${msg}`);
-const logError = (msg) => console.log(`${chalk.red('×')} ${msg}`);
+const configPath = path.join(os.homedir(), '.just-commit-config.json');
 
 const defaultConfig = {
     apiKey: '',
