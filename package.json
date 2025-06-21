@@ -17,7 +17,8 @@
         "emoji": "node bin/index.js just-config enable-emoji",
         "scope": "node bin/index.js just-config enable-scope",
         "language": "node bin/index.js just-config choose-language",
-        "type": "node bin/index.js just-config choose-type"
+        "type": "node bin/index.js just-config choose-type",
+        "commit": "node bin/index.js just-commit"
     },
     "repository": {
         "type": "git",
