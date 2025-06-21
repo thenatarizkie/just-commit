@@ -1,5 +1,5 @@
-import { generateCommitMessage } from '../generateCommitMessage';
-import { commitFile, getDiffForFile, getGitChanges, stageFile } from '../utils';
+import { generateCommitMessage } from '../generateCommitMessage.js';
+import { commitFile, getDiffForFile, getGitChanges, stageFile } from '../utils.js';
 
 export async function handleCommitCommand(options) {
     const { date, mode } = options;
