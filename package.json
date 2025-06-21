@@ -8,11 +8,16 @@
         "just-commit": "bin/index.js"
     },
     "scripts": {
-        "start": "node bin/index.js just-config choose-type",
+        "start": "node bin/index.js",
         "lint": "eslint .",
         "format": "prettier --write .",
         "lint:fix": "eslint . --fix && prettier --write .",
-        "test": "mocha --recursive"
+        "test": "mocha --recursive",
+        "apikey": "node bin/index.js just-config set-api-key",
+        "emoji": "node bin/index.js just-config enable-emoji",
+        "scope": "node bin/index.js just-config enable-scope",
+        "language": "node bin/index.js just-config choose-language",
+        "type": "node bin/index.js just-config choose-type"
     },
     "repository": {
         "type": "git",
@@ -47,6 +52,7 @@
     },
     "dependencies": {
         "@google/generative-ai": "^0.24.1",
+        "chalk": "^5.4.1",
         "child_process": "^1.0.2",
         "dotenv": "^16.4.5",
         "dotenv-flow": "^4.1.0",
