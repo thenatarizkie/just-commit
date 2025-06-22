@@ -5,6 +5,7 @@ import process from 'process';
 
 import { handleCommitCommand } from '../src/commands/just-commit.js';
 import { handleConfigCommand } from '../src/commands/just-config.js';
+import { handleUndoCommand } from '../src/commands/just-undo.js';
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -24,6 +25,10 @@ const command = args[0];
                 },
             });
             await handleCommitCommand(parsed);
+            break;
+        }
+        case 'just-undo': {
+            await handleUndoCommand();
             break;
         }
         default: {
