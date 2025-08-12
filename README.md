@@ -89,7 +89,7 @@ npm run test
 
 Please check our [CONTRIBUTING.md](CONTRIBUTING.md) guide for more details.
 
-## Suppport & Donation
+## Support & Donation
 
 If you found this bot helpful, consider supporting the project:
 
