@@ -53,7 +53,7 @@
         "dotenv-flow": "^4.1.0",
         "execa": "^9.5.2",
         "minimist": "^1.2.8",
-        "ora": "^8.2.0",
+        "ora": "^9.0.0",
         "process": "^0.11.10",
         "prompts": "^2.4.2",
         "translate-google": "^1.5.0"
